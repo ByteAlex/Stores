@@ -1,0 +1,11 @@
+dependencies {
+    api project(':api')
+    api "com.github.ben-manes.caffeine:caffeine:$caffeine_version"
+    annotationProcessor "com.austinv11.servicer:Servicer:$servicer_version"
+}
+
+javadoc {
+    dependsOn project(':api').javadoc
+
+    options.linksOffline rootProject.buildDocsUrl('stores-api'), project(':api').javadoc.destinationDir.toURI() as String
+}
